@@ -1,5 +1,5 @@
-package manipulation;
-
+package radioo; 
+//fixed n updated - luis laguardia
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -154,24 +154,12 @@ public class radio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				
-				if (luis.isSelected() || jm.isSelected() || earl.isSelected()){
-					JOptionPane.showMessageDialog(earl, "luis, jm, and earl passed");
-				}else if (!earl.isSelected() && !luis.isSelected() && !earl.isSelected()) {
-					JOptionPane.showMessageDialog(submit, "please select the one who passed");
-				}else if (earl.isSelected()) {
-					JOptionPane.showMessageDialog(earl, "please select the one who passed");
-				}else if (luis.isSelected()) {
-					JOptionPane.showMessageDialog(luis, "please select the one who passed");
-				}else if (ken.isSelected()) {
-					JOptionPane.showMessageDialog(ken, "please select the one who passed");
-				}else if (tash.isSelected()) {
-					JOptionPane.showMessageDialog(tash, "please select the one who passed");
-				}else if (jm.isSelected()) {
-					JOptionPane.showMessageDialog(jm, "please select the one who passed");
-				}else {
-					JOptionPane.showMessageDialog(submit,"please select the one who passed");
-				}
-			
+				if (earl.isSelected() && luis.isSelected() && jm.isSelected() &&
+					    !ken.isSelected() && !tash.isSelected()) {
+						JOptionPane.showMessageDialog(submit, "Luis, JM, and Earl passed");
+					} else {
+						JOptionPane.showMessageDialog(submit, "Please select the ones who passed");
+					}
 					
 			}
 		});
