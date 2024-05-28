@@ -1,4 +1,4 @@
-package manipulation;
+package radioo;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
@@ -7,27 +7,22 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JFrame;
 
 public class main extends JPanel {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtUser;
 	private JPasswordField txtPass;
 	private JButton btnLogin;
 
-	/**
-	 * Create the panel.
-	 */
-	public main() {
+	public main(JFrame frame) {
 		setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("username:");
+		JLabel lblNewLabel = new JLabel("Username:");
 		lblNewLabel.setBounds(80, 116, 68, 13);
 		add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("password:");
+		JLabel lblNewLabel_1 = new JLabel("Password:");
 		lblNewLabel_1.setBounds(65, 213, 76, 13);
 		add(lblNewLabel_1);
 		
@@ -43,21 +38,24 @@ public class main extends JPanel {
 		btnLogin = new JButton("LOGIN");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(e.getSource() == btnLogin) {
-					String user = txtUser.getText();
-					String pass = txtPass.getText();
+				String user = txtUser.getText();
+				String pass = new String(txtPass.getPassword());
 				
 				if (user.equals("laguardia") && pass.equals("luis123")) {
-					
-				radio window1 = new radio();
-				window1.setVisible(true);
-				
+					radio window1 = new radio();
+					window1.setVisible(true);
+					frame.dispose();
+				} else {
+					// Optional: Show an error message
+					JLabel lblError = new JLabel("Invalid username or password.");
+					lblError.setBounds(120, 250, 200, 13);
+					add(lblError);
+					revalidate();
+					repaint();
 				}
 			}
-		}
-	});
-		btnLogin.setBounds(127, 310, 85, 21);
+		});
+		btnLogin.setBounds(200, 150, 85, 21);
 		add(btnLogin);
-
 	}
 }
